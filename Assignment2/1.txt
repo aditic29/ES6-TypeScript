@@ -1,0 +1,29 @@
+class fibonacci{
+    #previousNo:number;
+    #currentNo:number;  
+
+    constructor(){
+        this.#previousNo = 0;
+        this.#currentNo = 1;
+    }
+
+    private next(pn:number,cn:number){
+        let value:number;
+        [value,this.#previousNo,this.#currentNo] = [pn,cn,pn+cn];
+        return value;
+    }
+
+    getFibonacci(last:number){
+        let current_val = this.next(this.#previousNo,this.#currentNo);
+        while(last >= current_val){
+            console.log(current_val);
+            current_val = this.next(this.#previousNo,this.#currentNo);
+        }
+        this.#previousNo = 0;
+        this.#currentNo = 1;
+    }
+}
+
+let fibObj = new fibonacci();
+
+fibObj.getFibonacci(100);

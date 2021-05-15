@@ -1,0 +1,60 @@
+let chat1 = new Map();
+let chat2 = new Map();
+
+let um1 = new Set(["Hello my name is user1","This is my user1 chat"]);
+let um2 = new Set(["Hello my name is user2"]);
+let um3 = new Set(["Hello my name is user3","This is my user3 chat", "User3 chats a lot"]);
+
+chat1.set("user1",um1);
+chat1.set("user2",um2);
+chat1.set("user3",um3);
+
+let um4 = new Set(["Hello my name is user4","This is my user4 chat"]);
+let um5 = new Set(["Hello my name is user5"]);
+let um6 = new Set(["Hello my name is user6","This is my user6 chat", "User6 chats a lot"]);
+
+chat2.set("user4",um4);
+chat2.set("user5",um5);
+chat2.set("user6",um6);
+
+let allusers = function(usermap){
+    for (let key of usermap.keys()){
+        console.log(key);
+    }
+}
+
+allusers(chat1);
+allusers(chat2);
+
+let allmessages = function(usermap){
+    for (let value of usermap.values()){
+        for (let messages of value){
+            console.log(messages);
+        }
+    }
+}
+
+allmessages(chat1);
+allmessages(chat2);
+
+----------------------------------------------------------------------------------------------
+
+var chatroom1 = new Map();
+chatroom1
+.set("user 1", "hello i am user 1")
+.set("user 2", "hello i am user 2")
+.set("user 3", "hello i am user 3");
+
+var chatroom2 = new Map([
+["user 4", "hello i am user 4"],
+["user 5", "hello i am user 5"],
+["user 6", "hello i am user 6"],
+]);
+
+for (let [key, value] of chatroom1.entries()) {
+console.log(`${key} = ${value}`);
+}
+
+for (let [key, value] of chatroom2.entries()) {
+console.log(`${key} = ${value}`);
+}

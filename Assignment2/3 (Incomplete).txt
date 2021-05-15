@@ -1,0 +1,55 @@
+class armstrong {
+
+    private getPower(num:number){
+        let count = 0;
+        while(num>0){
+            num= Math.floor(num/10);
+            count++
+        }
+        return count;
+    }
+
+    private getProductSum(num:number,power:number){
+        let sum = 0;
+        while(num > 0){
+            let rem = num%10;
+            sum = sum + Math.pow(rem,power);
+            num = Math.floor(num/10);
+        }
+        return sum;
+    }
+
+    nextArmstrongNo(start:number){
+        let num = start+1;
+        let power = this.getPower(num);
+        let sum = this.getProductSum(num,power)
+        try
+        {
+            if(sum > 1000)
+            {
+                throw "Number greater than 1000"
+            }
+            else
+            {
+                if (sum===num)
+                {
+                    console.log(sum);
+                }
+                else
+                {
+                    num++;
+                    this.nextArmstrongNo(num);
+                }
+            }
+        }
+        catch(err)
+        {
+            console.log(err)
+        }
+        
+    }
+}
+
+
+let a = new armstrong();
+a.nextArmstrongNo(407);
